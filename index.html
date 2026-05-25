@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carta Secreta para Samy</title>
+  <style>
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fce4ec;
+    }
+
+    .screen {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .active {
+      display: flex;
+    }
+
+    .password-screen {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .keypad {
+      display: grid;
+      grid-template-columns: repeat(3, 60px);
+      gap: 10px;
+      margin-top: 20px;
+      justify-content: center;
+    }
+
+    .key {
+      background-color: #f8bbd0;
+      border: none;
+      border-radius: 10px;
+      font-size: 20px;
+      padding: 15px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .key:hover {
+      background-color: #f48fb1;
+    }
+
+    .input-display {
+      font-size: 24px;
+      margin-top: 20px;
+      letter-spacing: 8px;
+    }
+
+    .notepad {
+      background-color: #fff0f6;
+      border: 3px solid #f8bbd0;
+      border-radius: 20px;
+      padding: 25px;
+      width: 90%;
+      max-width: 550px;
+      font-family: 'Comic Sans MS', cursive;
+      line-height: 1.8;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+       background-color: #fff0f6;
+  border: 3px solid #f8bbd0;
+  border-radius: 20px;
+  padding: 25px;
+  width: 90%;
+  max-width: 550px;
+  position: relative;
+    }
+
+    .arrow-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+
+    .arrow {
+      font-size: 38px;
+      cursor: pointer;
+      color: #e91e63;
+      user-select: none;
+      transition: 0.2s;
+    }
+
+    .arrow:hover {
+      transform: translateY(5px);
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- CONTRASEÑA -->
+<div id="passwordScreen" class="screen password-screen active">
+
+  <h2>🔒 Enter password</h2>
+
+  <div class="input-display" id="inputDisplay">••••</div>
+
+  <div class="keypad">
+
+    <button class="key" onclick="enterDigit('1')">1</button>
+    <button class="key" onclick="enterDigit('2')">2</button>
+    <button class="key" onclick="enterDigit('3')">3</button>
+
+    <button class="key" onclick="enterDigit('4')">4</button>
+    <button class="key" onclick="enterDigit('5')">5</button>
+    <button class="key" onclick="enterDigit('6')">6</button>
+
+    <button class="key" onclick="enterDigit('7')">7</button>
+    <button class="key" onclick="enterDigit('8')">8</button>
+    <button class="key" onclick="enterDigit('9')">9</button>
+
+    <div></div>
+    <button class="key" onclick="enterDigit('0')">0</button>
+    <div></div>
+
+  </div>
+
+</div>
+
+<!-- PRIMERA CARTA -->
+<div id="firstLetter" class="screen">
+
+  <div class="notepad">
+
+    <h3>📅 24 Mayo 2026</h3>
+    <h4>💌 Mi querida Samy</h4>
+
+    <p>Te adoro mi niña ♡</p>
+
+    <p>
+      Sé cuánto te gusta oír eso, pero no lo escribo solo porque te guste,
+      lo escribo porque me llena de calidez el escribirte.
+    </p>
+
+    <p>
+     Ha pasado algùn tiempo desde la última vez que te escribí, pero sé que me disculparás porque entiendes
+      cómo soy, terco y realista; <br> y pensé que no tenía sentido escribir.
+    </p>
+    <div class="arrow-container">
+      <!-- SIGUIENTE -->
+      <div class="arrow" onclick="goSecond()">
+        ↓
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- SEGUNDA CARTA -->
+<div id="secondLetter" class="screen">
+
+  <div class="notepad">
+
+    <h3>🌙 Mi amada niña</h3>
+
+    <p>
+      A veces pienso en todo lo que quiero vivir contigo.
+    </p>
+
+    <p>
+      Quiero que me ames y me cuides. Quiero tener problemas que discutir contigo, quiero hacer pequeños proyectos contigo. <br>
+      Hasta ahora no había pensado que pudiéramos hacerlo. ¿Qué deberíamos hacer? Empezamos a aprender a hacer ropa juntos,<br> 
+      o  a aprender chino, o  a comprar un proyector de cine. ¿Acaso no podemos hacer algo ahora?. 
+    </p>
+
+    <p>
+      No sé qué traerá el futuro,
+      pero quiero que tù estés en él.
+    </p>
+
+    <p>
+      Me siento tan solo cuando tù no estàs, porque tú eres esa mente brillante 
+      y la inspiraciòn de mis dìas. ♡
+    </p>
+
+    <div class="arrow-container">
+
+      <!-- REGRESAR -->
+      <div class="arrow" onclick="goFirst()">
+        ↑
+      </div>
+
+      <!-- TERCERA -->
+      <div class="arrow" onclick="goThird()">
+        ↓
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- TERCERA CARTA -->
+<div id="thirdLetter" class="screen">
+
+  <div class="notepad">
+
+    <h3>💌 Amo a mi niña</h3>
+
+    <p>
+     No sé cómo explicarlo, pero contigo mi corazón está en paz. Te quiero no por quièn eres, 
+     sino por quièn soy
+      cuando estoy contigo.
+    </p>
+
+    <p>
+      Porque cada palabra aquí
+      fue escrita pensando solamente en ti.
+    </p>
+      <p>
+      Quiero amarte. Siempre te amaré.
+    </p>
+
+    <p>
+      Mi querida esposa, te adoro ♡
+    </p>
+    <p>
+      Siempre tuyo <br>
+      -Bryan ♡
+    </p>
+</div>
+    <div class="arrow-container">
+
+      <!-- VOLVER -->
+      <div class="arrow" onclick="goSecondBack()">
+        ↑
+      </div>
+
+      <div></div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+
+  const correctPassword = '0110';
+  let input = '';
+
+  function enterDigit(digit) {
+
+    if (input.length < 4) {
+      input += digit;
+    }
+
+    const display = document.getElementById('inputDisplay');
+
+    display.textContent = input.padEnd(4, '•');
+
+    if (input.length === 4) {
+
+      if (input === correctPassword) {
+
+        document.getElementById('passwordScreen')
+          .classList.remove('active');
+
+        document.getElementById('firstLetter')
+          .classList.add('active');
+
+      } else {
+
+        alert('Contraseña incorrecta');
+
+        input = '';
+        display.textContent = '••••';
+      }
+    }
+  }
+
+  // IR A SEGUNDA CARTA
+  function goSecond() {
+
+    document.getElementById('firstLetter')
+      .classList.remove('active');
+
+    document.getElementById('secondLetter')
+      .classList.add('active');
+  }
+
+  // VOLVER A PRIMERA
+  function goFirst() {
+
+    document.getElementById('secondLetter')
+      .classList.remove('active');
+
+    document.getElementById('firstLetter')
+      .classList.add('active');
+  }
+
+  // IR A TERCERA
+  function goThird() {
+
+    document.getElementById('secondLetter')
+      .classList.remove('active');
+
+    document.getElementById('thirdLetter')
+      .classList.add('active');
+  }
+
+  // VOLVER A SEGUNDA
+  function goSecondBack() {
+
+    document.getElementById('thirdLetter')
+      .classList.remove('active');
+
+    document.getElementById('secondLetter')
+      .classList.add('active');
+  }
+</script>
+</body>
+
+<script>
+</script>
